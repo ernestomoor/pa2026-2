@@ -1,0 +1,217 @@
+/* Variables de color y fuentes */
+:root {
+    --bg-main: #f4f6f9;
+    --bg-sidebar: #1e293b;
+    --text-main: #334155;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --primary: #3b82f6;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: var(--bg-sidebar);
+    color: var(--white);
+    position: fixed;
+    padding: 2rem 1rem;
+}
+
+.logo h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary);
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+.sidebar ul li a:hover, 
+.sidebar ul li a.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Contenido Principal */
+.main-content {
+    margin-left: 260px;
+    padding: 2rem;
+    width: calc(100% - 260px);
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--bg-sidebar);
+}
+
+.date {
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+/* Tarjetas contenedoras */
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--bg-sidebar);
+    border-bottom: 2px solid var(--bg-main);
+    padding-bottom: 0.5rem;
+}
+
+.card p {
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* Cuadrícula de Métricas */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.metric-card {
+    background: var(--bg-main);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.metric-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.metric-card .value {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Lista de Objetivos/Tareas */
+.task-list {
+    list-style: none;
+}
+
+.task-list li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.task-list li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+}
+
+.task-list li.done::before {
+    color: var(--success);
+}
+
+.task-list li.pending::before {
+    color: var(--warning);
+}
+
+/* Tabla de rendimiento */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--bg-main);
+}
+
+th {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-ok {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-delay {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* Adaptación para pantallas móviles */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+}
